@@ -11,32 +11,41 @@ function createLibrary(name) {
 };
 
 //add book to specific shelf
-function addBook(library,book) {
+function addBook(library, book) {
   library.shelves[book.genre].push(book);
 };
 
 //check if the book is available on shelves at Library
 //create for loop to check availibility
-
+//look at bracket notation with objects to use genre of passed book as the key
 function checkoutBook(library, checkedBook) {
-  for (var i = 0; i < library.shelves.fantasy.length; i++) {
-    if (library.shelves.fantasy[i].title.includes(checkedBook)) {
-      library.shelves.fantasy.splice(i, 1);
+  for (var i = 0; i < library.shelves.length; i++) {
+    if (library.shelves[book.genre[i]].title.includes(checkedBook)) {
+      library.shelves[book.genre[i]].splice(i, 1);
       return `You have now checked out ${checkedBook} from the ${library.name}`;
     }
-  for (var i = 0; i < library.shelves.fiction.length; i++)
-    if (library.shelves.fiction[i].title.includes(checkedBook)) {
-      library.shelves.fiction.splice(i, 1);
-      return `You have now checked out ${checkedBook} from the ${library.name}`;
-    }
-  for (var i = 0; i < library.shelves.nonFiction.length; i++)
-    if (library.shelves.nonFiction[i].title.includes(checkedBook)) {
-      library.shelves.nonFiction.splice(i, 1);
-      return `You have now checked out ${checkedBook} from the ${library.name}`;
   }
+  return `Sorry, there are currently no copies of ${checkedBook} available at the ${library.name}`
 }
-  return `Sorry, there are currently no copies of ${checkedBook} available at the ${library.name}`;
-}
+// function checkoutBook(library, checkedBook) {
+//   for (var i = 0; i < library.shelves.fantasy.length; i++) {
+//     if (library.shelves.fantasy[i].title.includes(checkedBook)) {
+//       library.shelves.fantasy.splice(i, 1);
+//       return `You have now checked out ${checkedBook} from the ${library.name}`;
+//     }
+//   for (var i = 0; i < library.shelves.fiction.length; i++)
+//     if (library.shelves.fiction[i].title.includes(checkedBook)) {
+//       library.shelves.fiction.splice(i, 1);
+//       return `You have now checked out ${checkedBook} from the ${library.name}`;
+//     }
+//   for (var i = 0; i < library.shelves.nonFiction.length; i++)
+//     if (library.shelves.nonFiction[i].title.includes(checkedBook)) {
+//       library.shelves.nonFiction.splice(i, 1);
+//       return `You have now checked out ${checkedBook} from the ${library.name}`;
+//   }
+// }
+//   return `Sorry, there are currently no copies of ${checkedBook} available at the ${library.name}`;
+// }
 
 module.exports = {
   createLibrary: createLibrary,
